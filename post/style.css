@@ -1,0 +1,12 @@
+body {
+    background-image: url('../hex.png');
+    background:linear-gradient(rgb(165, 235, 73) white);
+}
+
+.info{
+    background-color: blue !important;
+}
+
+.small{
+    margin: 50px;
+}
