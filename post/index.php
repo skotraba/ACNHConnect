@@ -14,16 +14,17 @@
 
     <div class='jumbotron text-center bg-dark text-white'>
         <h1>Post Page</h1>
+        <?php
+            include '../header/header.php';
+            createHeader();
+        ?>
     </div>
 
 
     <div class='container'>
        
         <form action='./post.php' method='post'>
-            <!-- <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" placeholder="Enter your name" name='name' required>
-            </div> -->
+        
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Message</label>
                 <textarea class="form-control" rows="3" name='message' required></textarea>

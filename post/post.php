@@ -1,20 +1,22 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = 'acnh';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+include "../connect/connect.php";
 
 if (isset($_POST["message"])) {
     $message = mysqli_real_escape_string($conn, $_POST['message']);
 }
 
-// session_start();
-
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
 $user = $_SESSION['login_user'];
+
+if (!isset($user))
+{
+    echo("user is not set");
+}
 
 // Check connection
 if ($conn->connect_error) {
@@ -25,11 +27,8 @@ if ($conn->connect_error) {
         VALUES ( '$user', '$message', CURTIME())";
     
         if ($conn->query($sql) === TRUE) {
-            
-            echo '<script type="text/javascript">';
-            echo ' alert("Submitted")';  
-            echo '</script>';
             header("Location: ../main/index.php ");
+            
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

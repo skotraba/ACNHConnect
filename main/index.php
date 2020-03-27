@@ -16,9 +16,10 @@
             include '../header/header.php';
             createHeader();
         ?>
-        <a class='btn btn-primary' href='../post/index.html'>POST</a>
+        <a class='btn btn-primary' href='../post/index.php'>POST</a>
         <a class='btn btn-info' href='../register/register.html'>REGISTER</a>
         <a class='btn btn-info' href='../login/login.html'>LOGIN</a>
+        <a class='btn btn-warning' href='../logout/logout.php' onClick="refreshPage();">LOGOUT</a>
     </div>
 
 
@@ -29,5 +30,11 @@
     
     ?>
     </div>
+
+    <script>
+        function refreshPage(){
+            window.location.reload();
+        } 
+</script>
 </body>
 </html>

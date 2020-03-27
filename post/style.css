@@ -1,6 +1,6 @@
 body {
     background-image: url('../hex.png');
-    background:linear-gradient(rgb(165, 235, 73) white);
+    background-attachment: fixed;
 }
 
 .info{
