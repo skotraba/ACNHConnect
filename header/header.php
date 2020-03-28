@@ -7,6 +7,12 @@ if (isset($_SESSION['posting_not_logged_in'])) {
     unset($_SESSION['posting_not_logged_in']);
 }
 
+if (isset($_SESSION['profile_not_logged_in'])) {
+    // echo("Must be logged in to post");
+    echo("<script>alert('Must be logged in to create profile')</script>");
+    unset($_SESSION['profile_not_logged_in']);
+}
+
 function createHeader(){
     
         if (isset($_SESSION['login_user'])) {
