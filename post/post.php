@@ -1,28 +1,28 @@
 <?php
 
-
-include "../connect/connect.php";
+include '../connect/connect.php';
 
 if (isset($_POST["message"])) {
     $message = mysqli_real_escape_string($conn, $_POST['message']);
 }
 
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
-} 
-$user = $_SESSION['login_user'];
+if (isset($_SESSION['login_user'])) {
 
-if (!isset($user))
-{
-    echo("user is not set");
+    $user = $_SESSION['login_user'];
 }
+
+
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } else {
     if (!empty($message)){
+        if (!isset($user))
+        {
+            $_SESSION['posting_not_logged_in'] = "true";
+            header("Location: ../main/index.php ");
+        }
         $sql = "INSERT INTO posts (name, message, date)
         VALUES ( '$user', '$message', CURTIME())";
     
@@ -40,7 +40,6 @@ if ($conn->connect_error) {
 
 $sql = "SELECT id, name, message, date FROM posts";
 $result = $conn->query($sql);
-
 
 if ($result->num_rows > 0) {
    

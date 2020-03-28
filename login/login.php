@@ -1,5 +1,7 @@
 <?php
 
+include '../connect/connect.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -29,7 +31,7 @@ if ($conn->connect_error) {
          // session_register("myusername");
          // $_SESSION['login_user'] = $myusername;
          $loggedinuser = $row['username'];
-         session_start();
+        //  session_start();
          $_SESSION['login_user'] = $loggedinuser;
 
 
