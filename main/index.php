@@ -21,6 +21,7 @@
         <a class='btn btn-info' href='../login/login.html'>LOGIN</a>
         <a class='btn btn-warning' href='../logout/logout.php' onClick="refreshPage();">LOGOUT</a>
         <a class='btn btn-success' href='../profile/createProfile.php'>CREATE PROFILE</a>
+        <a class='btn btn-success' href='../profile/viewProfile.php'>VIEW PROFILE</a>
     </div>
 
 

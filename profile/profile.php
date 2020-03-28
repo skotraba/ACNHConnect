@@ -34,21 +34,39 @@ function createProfile() {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
+}
 
-    // echo "
+function viewProfile() {
+    $conn = $_SESSION["connection"];
+    $sql = "SELECT user, townsname, fruits, flowers FROM profile";
+    $result = $conn->query($sql);
 
-    // <h1>Username:</h1>
-    // <h3 >$user</h3>
-    // <h2>Townsname:</h2>
-    // <h3>answer</h3>
-    // <h2>Fruit:</h2>
-    // <h3>answer</h3>
-    // <h2>Flowers:</h2>
-    // <h3>answer</h3>
-    // <br><br>
-    // <a class='btn btn-primary' href='../post/index.php'>POST</a>
+    if ($result->num_rows > 0) {
+    
+        while($row = $result->fetch_assoc()) {
+        
+        // output data of each row
+    
+        echo
+        "
+        <div class='container'>
+            <div class='card bg-dark p-3 mb-5 text-white shadow-lg rounded'>
+                <div class='card-body text-center'>
+                    <h2> ".$row["user"]." </h2>
+                    <h2> ".$row["townsname"]." </h2>
+                    <p class='info'>" . $row["fruits"]. "</p>
+                    <p class='info'>" . $row["flowers"]. "</p>
+                </div>
+            </div>
+        </div>
+        ";
 
-    // ";
+
+        }
+        
+    } else {
+        echo "0 results";
+    }
 }
 
 ?>
