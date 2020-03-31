@@ -16,6 +16,7 @@
             include '../header/header.php';
             createHeader();
         ?>
+        <a class='btn btn-primary' href='../main/index.php'>MAIN</a>
     </div>
 
     <div class='container '>
